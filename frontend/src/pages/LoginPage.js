@@ -1,7 +1,9 @@
-
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "../styles.css";
+
+
 
 function LoginPage() {
   const [username, setUsername] = useState("");
@@ -22,13 +24,24 @@ function LoginPage() {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      {erro && <div style={{ color: "red" }}>{erro}</div>}
-      <form onSubmit={handleLogin}>
-        <input value={username} onChange={e => setUsername(e.target.value)} placeholder="Usuário" />
-        <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Senha" />
-        <button type="submit">Entrar</button>
+    <div className="center-container">
+      <form className="card" onSubmit={handleLogin}>
+        <h2>Login</h2>
+        {erro && <div className="msg-erro">{erro}</div>}
+        <input
+          className="input"
+          value={username}
+          onChange={e => setUsername(e.target.value)}
+          placeholder="Usuário"
+        />
+        <input
+          className="input"
+          type="password"
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+          placeholder="Senha"
+        />
+        <button className="btn" type="submit">Entrar</button>
       </form>
     </div>
   );

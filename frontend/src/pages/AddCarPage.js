@@ -1,6 +1,8 @@
-
 import React, { useState } from "react";
 import axios from "axios";
+import "../styles.css";
+
+
 
 function AddCarPage() {
   const [marca, setMarca] = useState("");
@@ -25,15 +27,31 @@ function AddCarPage() {
   };
 
   return (
-    <div>
-      <h2>Adicionar Carro</h2>
-      {msg && <div style={{ color: "green" }}>{msg}</div>}
-      {erro && <div style={{ color: "red" }}>{erro}</div>}
-      <form onSubmit={handleAdd}>
-        <input value={marca} onChange={e => setMarca(e.target.value)} placeholder="Marca" />
-        <input value={modelo} onChange={e => setModelo(e.target.value)} placeholder="Modelo" />
-        <input value={ano} onChange={e => setAno(e.target.value)} placeholder="Ano" type="number" />
-        <button type="submit">Adicionar</button>
+    <div className="center-container">
+      <form className="card" onSubmit={handleAdd}>
+        <h2>Adicionar Carro</h2>
+        {msg && <div className="msg-sucesso">{msg}</div>}
+        {erro && <div className="msg-erro">{erro}</div>}
+        <input
+          className="input"
+          value={marca}
+          onChange={e => setMarca(e.target.value)}
+          placeholder="Marca"
+        />
+        <input
+          className="input"
+          value={modelo}
+          onChange={e => setModelo(e.target.value)}
+          placeholder="Modelo"
+        />
+        <input
+          className="input"
+          value={ano}
+          onChange={e => setAno(e.target.value)}
+          placeholder="Ano"
+          type="number"
+        />
+        <button className="btn" type="submit">Adicionar</button>
       </form>
     </div>
   );

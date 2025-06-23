@@ -1,0 +1,102 @@
+body {
+  background: #e9ecef;
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.center-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 70px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 16px 0 #0002;
+  padding: 2.2rem 2rem 1.2rem 2rem;
+  min-width: 320px;
+  margin-bottom: 30px;
+}
+
+.input {
+  width: 100%;
+  padding: 8px 14px;
+  margin: 12px 0;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.btn, .btn-logout {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 0.65rem 1.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 1rem;
+  transition: background .2s;
+}
+
+.btn:hover, .btn-logout:hover {
+  background: #115293;
+}
+
+.msg-erro {
+  color: #d32f2f;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.msg-sucesso {
+  color: #388e3c;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.tabela-carros {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 18px;
+}
+
+.tabela-carros th, .tabela-carros td {
+  border: 1px solid #bbb;
+  padding: 7px 12px;
+  text-align: left;
+}
+
+.tabela-carros th {
+  background: #f5f5f5;
+}
+
+.navbar {
+  background: #1565c0;
+  padding: 14px 32px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 0;
+  min-height: 44px;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  margin-right: 16px;
+  font-size: 1rem;
+  transition: color .2s;
+}
+.nav-link:hover {
+  color: #e3f2fd;
+}
+.btn-logout {
+  background: #d32f2f;
+  margin-left: 24px;
+  padding: 0.55rem 1.2rem;
+}

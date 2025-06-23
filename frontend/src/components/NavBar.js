@@ -1,6 +1,7 @@
-
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import "../styles.css";
+
 
 function NavBar() {
   const navigate = useNavigate();
@@ -12,12 +13,12 @@ function NavBar() {
   };
 
   return (
-    <nav>
+    <nav className="navbar">
       {token && (
         <>
-          <Link to="/cars">Lista de Carros</Link> | 
-          <Link to="/add-car">Adicionar Carro</Link> | 
-          <button onClick={logout}>Sair</button>
+          <Link className="nav-link" to="/cars">Lista de Carros</Link>
+          <Link className="nav-link" to="/add-car">Adicionar Carro</Link>
+          <button className="btn-logout" onClick={logout}>Sair</button>
         </>
       )}
     </nav>

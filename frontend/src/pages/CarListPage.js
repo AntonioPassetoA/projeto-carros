@@ -1,6 +1,8 @@
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import "../styles.css";
+
+
 
 function CarListPage() {
   const [cars, setCars] = useState([]);
@@ -21,14 +23,29 @@ function CarListPage() {
   }, []);
 
   return (
-    <div>
-      <h2>Lista de Carros</h2>
-      {erro && <div style={{ color: "red" }}>{erro}</div>}
-      <ul>
-        {cars.map(car => (
-          <li key={car.id}>{car.marca} - {car.modelo} - {car.ano}</li>
-        ))}
-      </ul>
+    <div className="center-container">
+      <div className="card" style={{ minWidth: 380 }}>
+        <h2>Lista de Carros</h2>
+        {erro && <div className="msg-erro">{erro}</div>}
+        <table className="tabela-carros">
+          <thead>
+            <tr>
+              <th>Marca</th>
+              <th>Modelo</th>
+              <th>Ano</th>
+            </tr>
+          </thead>
+          <tbody>
+            {cars.map(car => (
+              <tr key={car.id}>
+                <td>{car.marca}</td>
+                <td>{car.modelo}</td>
+                <td>{car.ano}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
