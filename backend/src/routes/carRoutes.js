@@ -48,4 +48,35 @@ router.post('/cars', auth, [
     }
 });
 
+// Deletar carro por id
+router.delete('/cars/:id', auth, async (req, res) => {
+    try {
+        const id = req.params.id;
+        await CarModel.delete(id);
+        cache.del('cars');
+        res.json({ message: 'Carro removido com sucesso' });
+    } catch {
+        res.status(500).json({ error: 'Erro ao remover carro' });
+    }
+});
+
+// Editar carro por id
+router.put('/cars/:id', auth, [
+    body('marca').isString().notEmpty(),
+    body('modelo').isString().notEmpty(),
+    body('ano').isInt({ min: 1900, max: 2100 })
+], async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) return res.status(400).json({ error: 'Dados inválidos' });
+
+    try {
+        const id = req.params.id;
+        await CarModel.update(id, req.body);
+        cache.del('cars');
+        res.json({ message: 'Carro editado com sucesso' });
+    } catch {
+        res.status(500).json({ error: 'Erro ao editar carro' });
+    }
+});
+
 module.exports = router;
